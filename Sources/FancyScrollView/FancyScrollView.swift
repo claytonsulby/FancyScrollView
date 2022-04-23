@@ -90,5 +90,19 @@ extension FancyScrollView {
                      header: nil,
                      content: AnyView(content()))
        }
+    
+    public init<A: View, B:View>(title: String = "", titleView: () -> B?, titleColor: Color = Color.white,
+                         headerHeight: CGFloat = 300,
+                         scrollUpHeaderBehavior: ScrollUpHeaderBehavior = .parallax,
+                         scrollDownHeaderBehavior: ScrollDownHeaderBehavior = .offset,
+                         content: () -> A) {
+
+           self.init(title: title, titleView: AnyView(titleView()), titleColor: titleColor,
+                     headerHeight: headerHeight,
+                     scrollUpHeaderBehavior: scrollUpHeaderBehavior,
+                     scrollDownHeaderBehavior: scrollDownHeaderBehavior,
+                     header: nil,
+                     content: AnyView(content()))
+       }
 
 }
